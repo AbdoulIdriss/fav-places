@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:favorite_places/screens/places.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 
 final colorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
@@ -26,12 +28,11 @@ final theme = ThemeData().copyWith(
   ),
 );
 
-void main() {
-  runApp(
-    const ProviderScope(
-      child: MyApp()
-    ),
-  );
+Future<void> main() async {
+  await dotenv.load(); // Load the .env file
+  runApp(const ProviderScope(
+    child: MyApp()
+  ));
 }
 
 class MyApp extends StatelessWidget {
