@@ -20,7 +20,7 @@ class Place {
 
   Place({
     required this.title,
-    required this.image ,
+    required this.image,
     required this.location,
     String? id
   }) : id = id ?? uuid.v4() ;
